@@ -1,5 +1,6 @@
 package code;
 
+import Database.BankDatabase;
 import GUI.DepositSlot;
 import GUI.Keypad;
 import GUI.Screen;

@@ -2,6 +2,7 @@ package code;
 // BalanceInquiry.java
 // Represents a balance inquiry ATM transaction
 
+import Database.BankDatabase;
 import GUI.Screen;
 
 public class BalanceInquiry extends Transaction

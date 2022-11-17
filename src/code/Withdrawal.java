@@ -2,6 +2,7 @@ package code;
 // Withdrawal.java
 // Represents a withdrawal ATM transaction
 
+import Database.BankDatabase;
 import GUI.CashDispenser;
 
 import GUI.Screen;
