@@ -2,6 +2,12 @@ package code;
 // Withdrawal.java
 // Represents a withdrawal ATM transaction
 
+import GUI.CashDispenser;
+
+import GUI.Screen;
+
+import GUI.Keypad;
+
 public class Withdrawal extends Transaction
 {
    private int amount; // amount to withdraw

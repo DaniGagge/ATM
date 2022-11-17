@@ -2,6 +2,11 @@ package code;
 // ATM.java
 // Represents an automated teller machine
 
+import GUI.CashDispenser;
+import GUI.DepositSlot;
+import GUI.Keypad;
+import GUI.Screen;
+
 public class ATM 
 {
    private boolean userAuthenticated; // whether user is authenticated
