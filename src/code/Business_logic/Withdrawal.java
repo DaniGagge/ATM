@@ -9,12 +9,12 @@ import code.GUI.Screen;
 
 public class Withdrawal extends Transaction
 {
-   private int amount; // amount to withdraw
+   private Euro amount; // amount to withdraw
    private Keypad keypad; // reference to keypad
    private CashDispenser cashDispenser; // reference to cash dispenser
 
    // constant corresponding to menu option to cancel
-   private final static int CANCELED = 6;
+   private final static Euro CANCELED = new Euro(6);
 
    // Withdrawal constructor
    public Withdrawal( int userAccountNumber, Screen atmScreen, 
@@ -33,7 +33,7 @@ public class Withdrawal extends Transaction
    public void execute()
    {
       boolean cashDispensed = false; // cash was not dispensed yet
-      double availableBalance; // amount available for withdrawal
+      Euro availableBalance; // amount available for withdrawal
 
       // get references to bank database and screen
       BankDatabase bankDatabase = getBankDatabase(); 
@@ -43,17 +43,17 @@ public class Withdrawal extends Transaction
       do
       {
          // obtain a chosen withdrawal amount from the user 
-         amount = displayMenuOfAmounts();
+         amount = new Euro(displayMenuOfAmounts());
          
          // check whether user chose a withdrawal amount or canceled
-         if ( amount != CANCELED )
+         if ( !amount.ugualeA(CANCELED) )
          {
             // get available balance of account involved
             availableBalance = 
                bankDatabase.getAvailableBalance( getAccountNumber() );
       
             // check whether the user has enough money in the account 
-            if ( amount <= availableBalance )
+            if ( amount.minoreDi(availableBalance))
             {   
                // check whether the cash dispenser has enough money
                if ( cashDispenser.isSufficientCashAvailable( amount ) )
@@ -105,11 +105,11 @@ public class Withdrawal extends Transaction
       {
          // display the menu
          screen.displayMessageLine( "\nWithdrawal Menu:" );
-         screen.displayMessageLine( "1 - $20" );
-         screen.displayMessageLine( "2 - $40" );
-         screen.displayMessageLine( "3 - $60" );
-         screen.displayMessageLine( "4 - $100" );
-         screen.displayMessageLine( "5 - $200" );
+         screen.displayMessageLine( "1 - 20 euro" );
+         screen.displayMessageLine( "2 - 40 euro" );
+         screen.displayMessageLine( "3 - 60 euro" );
+         screen.displayMessageLine( "4 - 100 euro" );
+         screen.displayMessageLine( "5 - 200 euro" );
          screen.displayMessageLine( "6 - Cancel transaction" );
          screen.displayMessage( "\nChoose a withdrawal amount: " );
 
@@ -125,8 +125,8 @@ public class Withdrawal extends Transaction
             case 5:
                userChoice = amounts[ input ]; // save user's choice
                break;       
-            case CANCELED: // the user chose to cancel
-               userChoice = CANCELED; // save user's choice
+            case 6: // the user chose to cancel
+               userChoice = (int) CANCELED.getValore(); // save user's choice
                break;
             default: // the user did not enter a value from 1-6
                screen.displayMessageLine( 
