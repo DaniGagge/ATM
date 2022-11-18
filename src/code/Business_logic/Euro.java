@@ -1,5 +1,5 @@
 package code.Business_logic;
-public class Euro {
+public class Euro { 
 
 	private long valore;
 
