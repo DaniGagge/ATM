@@ -11,8 +11,8 @@ public class Euro {
 		}
 	}
 
-	public Euro(double d) {
-		valore = (long)(d*100);
+	public Euro(double euro) {
+		valore = (long)(euro*100);
 	}
 
 	public long getValore() {
@@ -26,6 +26,11 @@ public class Euro {
 
 	public Euro sottrai(Euro e) {
 		this.valore = this.valore - e.getValore();
+		return this;
+	}
+
+	public Euro dividi(Euro e) {
+		this.valore = this.valore / e.getValore();
 		return this;
 	}
 

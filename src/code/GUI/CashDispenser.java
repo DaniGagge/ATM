@@ -19,14 +19,14 @@ public class CashDispenser
    // simulates dispensing of specified amount of cash
    public void dispenseCash( Euro amount )
    {
-      int billsRequired = (int) amount.getValore() / 20; // number of $20 bills required
+      int billsRequired = (int) amount.getValore() / 2000; // number of $20 bills required
       count -= billsRequired; // update the count of bills
    } // end method dispenseCash
 
    // indicates whether cash dispenser can dispense desired amount
    public boolean isSufficientCashAvailable( Euro amount )
    {
-      int billsRequired = (int) amount.getValore() / 20; // number of $20 bills required
+      int billsRequired = (int) amount.getValore() / 2000; // number of $20 bills required
 
       if ( count >= billsRequired  )
          return true; // enough bills available

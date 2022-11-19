@@ -20,9 +20,9 @@ public class Screen
 
    // display a dollar amount
    public void displayDollarAmount( Euro availableBalance )
-   {
-      //System.out.printf( "$%.2d", availableBalance.getValore() );   
-      System.out.printf(availableBalance.getValore()/100 + "euro");
+   {   
+      //System.out.printf("%.2d"+availableBalance.getValore());
+      System.out.printf("%.2f euro.", (double) availableBalance.getValore()/100);
    } // end method displayDollarAmount 
 } // end class Screen
 

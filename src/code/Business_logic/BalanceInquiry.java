@@ -22,12 +22,10 @@ public class BalanceInquiry extends Transaction
       Screen screen = getScreen();
 
       // get the available balance for the account involved
-      Euro availableBalance = 
-         bankDatabase.getAvailableBalance( getAccountNumber() );
+      Euro availableBalance = bankDatabase.getAvailableBalance( getAccountNumber() );
 
       // get the total balance for the account involved
-      Euro totalBalance = 
-         bankDatabase.getTotalBalance( getAccountNumber() );
+      Euro totalBalance = bankDatabase.getTotalBalance( getAccountNumber() );
       
       // display the balance information on the screen
       screen.displayMessageLine( "\nBalance Information:" );
