@@ -14,7 +14,7 @@ public class Withdrawal extends Transaction
    private CashDispenser cashDispenser; // reference to cash dispenser
 
    // constant corresponding to menu option to cancel
-   private final static Euro CANCELED = new Euro(6);
+   private final static int CANCELED = 6;
 
    // Withdrawal constructor
    public Withdrawal( int userAccountNumber, Screen atmScreen, 
@@ -46,7 +46,7 @@ public class Withdrawal extends Transaction
          amount = new Euro(displayMenuOfAmounts());
          
          // check whether user chose a withdrawal amount or canceled
-         if ( !amount.ugualeA(CANCELED) )
+         if ( amount.getValore()/100 != CANCELED )
          {
             // get available balance of account involved
             availableBalance = 
@@ -125,8 +125,8 @@ public class Withdrawal extends Transaction
             case 5:
                userChoice = amounts[ input ]; // save user's choice
                break;       
-            case 6: // the user chose to cancel
-               userChoice = (int) CANCELED.getValore(); // save user's choice
+            case CANCELED: // the user chose to cancel
+               userChoice = CANCELED; // save user's choice
                break;
             default: // the user did not enter a value from 1-6
                screen.displayMessageLine( 
