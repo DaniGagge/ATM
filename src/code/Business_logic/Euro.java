@@ -29,6 +29,11 @@ public class Euro {
 		return this;
 	}
 
+	public Euro dividi(Euro e) {
+        this.valore = this.valore / e.getValore();
+        return this;
+    }
+
 	public boolean ugualeA(Euro e){
 		if (valore == e.getValore())
 			return true;

@@ -15,8 +15,8 @@ public class Account
    {
       accountNumber = theAccountNumber;
       pin = thePIN;
-      availableBalance = new Euro(theAvailableBalance.getValore());
-      totalBalance = new Euro(theTotalBalance.getValore());
+      availableBalance = new Euro(theAvailableBalance.getValore()/100);
+      totalBalance = new Euro(theTotalBalance.getValore()/100);
    } // end Account constructor
 
    // determines whether a user-specified PIN matches PIN in Account
@@ -50,6 +50,7 @@ public class Account
    public void debit( Euro amount )
    {
       // subtract from available balance
+      availableBalance.sottrai(amount);
       totalBalance.sottrai(amount); // subtract from total balance
    } // end method debit
 
